@@ -6,10 +6,10 @@ class TestApp(unittest.TestCase):
         self.app = app.test_client()
     
     def test_health_endpoint(self):
-        response = self.app.get('/ping')
+        response = self.app.get('/health')
         self.assertEqual(response.status_code, 200)
         data = response.get_json()
-        self.assertEqual(data['status'], 'ok')
+        self.assertEqual(data['status'], 'OK')
 
     def test_hello_endpoint(self):
         response = self.app.get('/')
